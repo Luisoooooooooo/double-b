@@ -1,16 +1,26 @@
-let width = 422;
-let height = 266;
+let width = 210;
+let height = 297;
 
-function calcBluebar(docHeight) {
+function calcBluebar(height) {
     const percentage = 0.08;
-    return docHeight * percentage;
+    return Math.round(height * percentage);
 }
-let bluebarHeight = Math.round(calcBluebar(height));
-console.log(bluebarHeight);
 
-function calcBblock(largestEdge) {
+function calcBblock(width, height) {
     const percentage = 0.12;
-    return (largestEdge * percentage) / 2;
+    let largestEdge = Math.max(width, height) * percentage;
+    return Math.round(largestEdge / 2);
 }
-let bblockRadius = Math.round(calcBblock(Math.max(width, height)));
+
+let bluebarHeight = calcBluebar(height);
+let bblockRadius = calcBblock(width, height);
+
+function getLogoHeight(halfHeight) {
+    return halfHeight / 2;
+}
+
+let logoHeight = getLogoHeight(bluebarHeight);
+
+console.log(bluebarHeight);
 console.log(bblockRadius);
+console.log(logoHeight);
