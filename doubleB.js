@@ -1,14 +1,17 @@
 let width = 210;
 let height = 297;
 
-const calcBluebar = (height) => Math.round(height * 0.08);
-const calcBblock = (width, height) => Math.round((Math.max(width, height) * 0.12) / 2);
+const BLUEBAR_PERCENTAGE = 0.08;
+const BBLOCK_PERCENTAGE = 0.12;
+
+const calcBluebar = (height) => Math.round(height * BLUEBAR_PERCENTAGE);
+const calcBblock = (width, height) => Math.round((Math.max(width, height) * BBLOCK_PERCENTAGE) / 2);
 const getLogoHeight = (bluebarHeight) => bluebarHeight / 2;
 
-let bluebarHeight = calcBluebar(height);
-let bblockRadius = calcBblock(width, height);
-let logoHeight = getLogoHeight(bluebarHeight);
+const bluebarHeight = calcBluebar(height);
+const bblockRadius = calcBblock(width, height);
+const logoHeight = getLogoHeight(bluebarHeight);
 
-console.log(bluebarHeight);
-console.log(bblockRadius);
-console.log(logoHeight);
+console.log("Blue bar height:", bluebarHeight);
+console.log("B block radius:", bblockRadius);
+console.log("Logo height:", logoHeight);
